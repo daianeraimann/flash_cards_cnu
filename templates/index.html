@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a class="sair" href="{{ url_for('logout') }}" class="logoutButton">Sair</a>
+        <h1>Flashcards</h1>
+        <div class="flashcard" id="flashcard">
+            <div class="tema" id="tema">Tema: {{tema}}</div>
+            <br>
+            <div class="termo" id="termo">{{ termo }}</div>
+            <div class="definicao" id="definicao" style="display: none;">Definição: {{ definicao }}</div>
+            <button class="virarButton" id="virarButton" onclick="virar()">VIRAR</button>
+            <button class="proximoButton" id="proximoButton" onclick="proximo()">PRÓXIMO</button>
+            
+        </div>
+    </div>
+    
+    <script>
+        function virar() {
+            var temaElement = document.getElementById('tema');
+            var termoElement = document.getElementById('termo');
+            var definicaoElement = document.getElementById('definicao');
+            var virarButton = document.getElementById('virarButton');
+            var proximoButton = document.getElementById('proximoButton');
+
+            temaElement.style.display = 'none';
+            termoElement.style.display = 'none';
+            definicaoElement.style.display = 'block';
+            virarButton.style.display = 'none';
+            proximoButton.style.display = 'block';
+        }
+
+        function proximo(){
+            window.location.reload();
+        }        
+    </script>
+</body>
+</html>

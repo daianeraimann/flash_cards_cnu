@@ -1,0 +1,80 @@
+/* Estilos para dispositivos móveis */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 400px; /* Define a largura máxima do conteúdo */
+    margin: 20px auto; /* Centraliza o conteúdo na página */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Adiciona posição relativa para poder posicionar os botões dentro */
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    position: absolute;
+    right: 20px;
+    color: #03353a;
+    
+
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #01707d;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Estilos para os botões */
+button {
+    background-color: #01707d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #03353a;
+}
+
+/* Posiciona os botões dentro do elemento pai .flashcard */
+.virarButton {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+}
+
+.proximoButton {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+/* Adiciona espaço para os botões abaixo do texto */
+.flashcard {
+    padding-bottom: 60px; /* Ajuste conforme necessário para dar espaço aos botões */
+}
