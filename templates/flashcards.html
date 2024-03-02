@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a class="sair" href="{{ url_for('logout') }}" class="logoutButton">Sair</a>
+        <h1>Flashcards</h1>
+        {% if card %}
+
+        <div class="flashcard" id="flashcard">
+            <div class="tema" id="tema">Tema: {{ card['tema'] }}</div>
+            <br>
+            <div class="termo" id="termo">Termo: {{ card['termo'] }}</div>
+            <div class="definicao" id="definicao" style="display: none;">Definição: {{ card['definicao'] }}</div>
+            <button class="virarButton" id="virarButton" onclick="virar()">VIRAR</button>
+            <button class="acertouButton" id="acertouButton" style="display: none;" onclick="register_answer('acertou', '{{ card_id }}')">ACERTOU</button>
+            <button class="errouButton" id="errouButton" style="display: none;" onclick="register_answer('errou', '{{ card_id }}')">ERROU</button>
+          
+           
+            <button class="finalizarButton" id="finalizarButton" onclick="finalizar()">PONTUAÇÃO</button>
+        </div>
+        {% else %}
+        <p>Nenhum flashcard disponível.</p>
+        {% endif %}
+    </div>
+    
+    <script>
+        function virar() {
+            console.log("Função virar() foi chamada.");
+
+            var termoElement = document.getElementById('termo');
+            var definicaoElement = document.getElementById('definicao');
+            var virarButton = document.getElementById('virarButton');
+            var acertouButton = document.getElementById('acertouButton');
+            var errouButton = document.getElementById('errouButton');
+
+            termoElement.style.display = 'none';
+            definicaoElement.style.display = 'block';
+            virarButton.style.display = 'none';
+            acertouButton.style.display = 'inline-block';
+            errouButton.style.display = 'inline-block';
+        }
+
+        
+
+        function register_answer(answer, card_id) {
+    console.log("Função register_answer() foi chamada com resposta:", answer, "e ID do cartão:", card_id);
+
+    // Enviar a resposta do usuário para o servidor usando AJAX
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "/register_answer/" + answer + "/" + card_id, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Resposta recebida do servidor
+            // Ocultar o cartão atual
+            var flashcardElement = document.getElementById('flashcard');
+            flashcardElement.style.display = 'none';
+
+            // Atualizar a página para mostrar o próximo flashcard
+            window.location.reload();
+        }
+    };
+    xhr.send();
+}
+
+        function finalizar() {
+            // Redirecionar para a rota de finalização (página ou rota a ser criada)
+            window.location.href = '/finalizar';
+        }
+    </script>
+</body>
+</html>

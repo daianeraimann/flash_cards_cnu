@@ -33,8 +33,31 @@ cursor.execute("""
 """)
 '''
 
+'''cursor.execute(""" 
+    ALTER TABLE flash_cards 
+    ADD COLUMN id 
+""")
 
-#print('essas poha toda deu certo')
+cursor.execute(""" 
+    UPDATE flash_cards
+    SET id = INTERGER PRIMARY KEY AUTOINCREMENT
+""")'''
+
+'''cursor.execute(""" 
+    CREATE TABLE flash_cards_lgpd AS
+    SELECT * FROM flash_cards
+    WHERE 1 = 0;
+
+""")'''
+cursor.execute(""" UPDATE flash_cards SET acertou = NULL;
+ """)
+
+"""for row in cursor.fetchall():
+    print(row)"""
+
+
+
+print('zerou saporra')
 
 
 conn.commit()

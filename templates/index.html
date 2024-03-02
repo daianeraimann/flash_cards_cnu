@@ -3,42 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcards</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Escolha os Temas:</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='finalizar.css') }}">
 </head>
 <body>
     <div class="container">
         <a class="sair" href="{{ url_for('logout') }}" class="logoutButton">Sair</a>
-        <h1>Flashcards</h1>
-        <div class="flashcard" id="flashcard">
-            <div class="tema" id="tema">Tema: {{tema}}</div>
-            <br>
-            <div class="termo" id="termo">{{ termo }}</div>
-            <div class="definicao" id="definicao" style="display: none;">Definição: {{ definicao }}</div>
-            <button class="virarButton" id="virarButton" onclick="virar()">VIRAR</button>
-            <button class="proximoButton" id="proximoButton" onclick="proximo()">PRÓXIMO</button>
+        <h1>Escolha uma Categoria</h1>
+        <form action="{{ url_for('show_flashcards') }}" method="GET" id="themeForm">
             
-        </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" id="select-all">
+                <label class="form-check-label" for="select-all">
+                Selecionar Todos
+                </label>
+            </div>
+
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="COBIT" value="COBIT">
+                <label class="form-check-label" for="COBIT">COBIT</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="GIT" value="GIT" >
+                <label class="form-check-label" for="GIT">GIT</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="ISO 27001" value="ISO 27001" >
+                <label class="form-check-label" for="GIT">ISO 27001</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="ITIL" value="ITIL" >
+                <label class="form-check-label" for="GIT">ITIL</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="LEI Nº 12.527/2011" value="LEI Nº 12.527/2011" >
+                <label class="form-check-label" for="GIT">LEI Nº 12.527/2011</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="PMBOK" value="PMBOK" >
+                <label class="form-check-label" for="GIT">PMBOK</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="REDES DE COMPUTADORES" value="REDES DE COMPUTADORES" >
+                <label class="form-check-label" for="GIT">REDES DE COMPUTADORES</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="SEGURANÇA DA INFORMAÇÃO" value="SEGURANÇA DA INFORMAÇÃO" >
+                <label class="form-check-label" for="GIT">SEGURANÇA DA INFORMAÇÃO</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="REDES DE COMPUTADORES" value="REDES DE COMPUTADORES" >
+                <label class="form-check-label" for="GIT">REDES DE COMPUTADORES</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="CAMADAS EM REDES" value="CAMADAS EM REDES" >
+                <label class="form-check-label" for="GIT">CAMADAS EM REDES</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="REDES MÓVEIS" value="REDES MÓVEIS" >
+                <label class="form-check-label" for="GIT">REDES MÓVEIS</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="CAMADAS EM REDES" value="CAMADAS EM REDES" >
+                <label class="form-check-label" for="GIT">CAMADAS EM REDES</label>
+            </div>
+            <div class="form-check form-switch">
+                <input class="form-check-input category-checkbox" type="checkbox" name="tema" id="REGULAMENTO (UE) 2016/679" value="REGULAMENTO (UE) 2016/679" >
+                <label class="form-check-label" for="GIT">REGULAMENTO (UE) 2016/679</label>
+            </div>
+            
+              
+              
+            <button type="submit">Mostrar Flashcards</button>
+        </form>
     </div>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <script>
-        function virar() {
-            var temaElement = document.getElementById('tema');
-            var termoElement = document.getElementById('termo');
-            var definicaoElement = document.getElementById('definicao');
-            var virarButton = document.getElementById('virarButton');
-            var proximoButton = document.getElementById('proximoButton');
-
-            temaElement.style.display = 'none';
-            termoElement.style.display = 'none';
-            definicaoElement.style.display = 'block';
-            virarButton.style.display = 'none';
-            proximoButton.style.display = 'block';
-        }
-
-        function proximo(){
-            window.location.reload();
-        }        
+    $(document).ready(function() {
+    // Adicione um evento de clique ao checkbox de seleção total
+    $("#select-all").click(function() {
+      // Se o checkbox de seleção total estiver marcado
+      if ($(this).is(":checked")) {
+        // Marque todos os checkboxes de categoria
+        $(".category-checkbox").prop("checked", true);
+      } else {
+        // Desmarque todos os checkboxes de categoria
+        $(".category-checkbox").prop("checked", false);
+      }
+    });
+  });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </body>
 </html>

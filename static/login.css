@@ -1,8 +1,16 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #262525;
     margin: 0;
     padding: 0;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    max-width: 200px; /* Largura máxima desejada */
+    margin-bottom: 0%;
 }
 
 .login-container {
@@ -17,6 +25,7 @@ body {
 h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: #262525;
 }
 
 .form-group {
@@ -61,5 +70,13 @@ a {
     
     color: #03353a;
     
+
+}
+
+p {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #262525;
 
 }

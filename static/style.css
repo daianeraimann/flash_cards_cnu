@@ -1,7 +1,7 @@
 /* Estilos para dispositivos móveis */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #262525;
     margin: 0;
     padding: 0;
 }
@@ -18,6 +18,7 @@ body {
 
 h1 {
     text-align: center;
+    color: #262525;
 }
 
 a {
@@ -61,17 +62,41 @@ button:hover {
     background-color: #03353a;
 }
 
-/* Posiciona os botões dentro do elemento pai .flashcard */
-.virarButton {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-}
-
-.proximoButton {
+.finalizarButton {
+    background-color: #855e8e;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
     position: absolute;
     bottom: 20px;
     right: 20px;
+
+}
+
+
+.acertouButton,
+.errouButton,
+.virarButton {
+    background-color: #01707d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    position: absolute;
+    bottom: 20px;
+}
+
+.acertouButton {
+    left: 20px; /* Alinha o botão 'acertouButton' com o canto direito */
+}
+
+.errouButton {
+    left: 150px; /* Alinha o botão 'errouButton' com o botão 'finalizarButton' */
 }
 
 /* Adiciona espaço para os botões abaixo do texto */

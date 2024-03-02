@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #262525;
+
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+a {
+    float: right;
+    color: #03353a;
+
+    
+
+}
+
+h1 {
+    font-size: 24px;
+    color: #03353a;
+    margin-bottom: 20px;
+    text-align: center;
+
+}
+
+p {
+    font-size: 18px;
+    color: #03353a;
+    margin-bottom: 10px;
+}
+
+.form-check-input:checked + .form-check-label {
+    font-weight: bold; /* Opcional: torna o texto em negrito quando selecionado */
+}
+
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: none;
+    transition: background-color 0.3s ease; /* Transição suave da cor de fundo */
+    outline: none; /* Remove a borda de foco */
+}
+
+input[type="checkbox"]:checked,input[type="radio"]:checked {
+    background-color: rgb(134, 40, 153);
+}
+
+
+.grafico {
+    margin-top: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.barra {
+    height: 30px;
+    background-color: #01252d;
+}
+
+.acertos {
+    background-color: #450354;
+}
+
+.erros {
+    background-color: #bc4d69;
+}
+
+button {
+    background-color: #01707d;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #03353a;
+}
+
+/* Adiciona estilo para remover o marcador de lista */
+ul {
+    list-style-type: none;
+}
+
+/* Adiciona estilo para posicionar a caixa de seleção antes da categoria */
+.theme-list li {
+    display: flex;
+    align-items: center;
+}
+
+.theme-list input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+
+.custom-checkbox .category-checkbox[type="checkbox"]:checked + .form-check-label::before {
+    background-color: rgb(71, 3, 82); /* Altere para a cor desejada */
+}
+

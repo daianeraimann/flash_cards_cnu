@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Revisão</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='finalizar.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a class="sair logoutButton" href="{{ url_for('logout') }}">Sair</a>
+        <form action="{{ url_for('index') }}" method="GET" id="themeForm">
+            <button type="submit" class="novoJogo" onclick="zerarJogo()" style="margin-right: 10px;">Novo Jogo</button>
+        </form>
+
+        <h1>Revisão Finalizada</h1>
+        <p>Número de acertos: {{ acertos }}</p>
+        <p>Número de erros: {{ erros }}</p>
+        <div class="grafico">
+            <div class="barra acertos" style="width: {{ acertos }}%;"></div>
+            <div class="barra erros" style="width: {{ erros }}%;"></div>
+        </div>
+    </div>
+
+    <script>
+        function zerarJogo() {
+            fetch('/novo_jogo', {
+                method: 'GET',
+            })
+            .then(response => {
+                if (response.redirected) {
+                    window.location.href = response.url;
+                }
+            })
+            .catch(error => console.error('Erro ao chamar a rota /novo_jogo:', error));
+        }
+    </script>
+</body>
+</html>
